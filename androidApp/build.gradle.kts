@@ -6,20 +6,30 @@ plugins {
 dependencies {
     implementation(project(":shared"))
 
+    // Jetpack
+    implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
 
-    // Integration with activities
+    // Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0")
+
+    // Kotlinx Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
+
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+
+    // Jetpack Compose
     implementation("androidx.activity:activity-compose:1.4.0")
-    // Compose Material Design
-    implementation("androidx.compose.material:material:1.0.5")
-    // Animations
-    implementation("androidx.compose.animation:animation:1.0.5")
-    // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.0.5")
-    // Integration with ViewModels
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0")
-    // UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
+    implementation("androidx.compose.ui:ui:1.1.0-beta02")
+    implementation("androidx.compose.ui:ui-tooling:1.1.0-beta02")
+    implementation("androidx.compose.foundation:foundation:1.1.0-beta02")
+    implementation("androidx.compose.material:material:1.1.0-beta02")
+    implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
+    implementation( "androidx.constraintlayout:constraintlayout-compose:1.0.0-rc01")
 }
 
 android {
