@@ -1,42 +1,54 @@
 package com.example.izacchi_birthday_app_2021.android.ui
 
 import android.widget.Toast
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
 fun MainScreen(navHostController: NavHostController) {
 
-    var userName by remember { mutableStateOf("") }
+    var birthday by remember { mutableStateOf("") }
     val context = LocalContext.current
 
-    Column {
-        TopAppBar(
-            title = { Text("Main Screen") }
-        )
-        Text(text = "Hello $userName")
+    TopAppBar(
+        title = { Text("Izacchi Birthday app 2021") }
+    )
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         OutlinedTextField(
-            value = userName,
-            onValueChange = { userName = it },
-            label = { Text(text = "Input your name") }
+            value = birthday,
+            onValueChange = { birthday = it },
+            label = { Text(text = "Your Birthday") }
         )
-        Button(onClick = {
-            if (userName.isNotEmpty()) {
-                navHostController.navigate(route = "content")
-            } else {
-                Toast.makeText(context, "userName is empty", Toast.LENGTH_SHORT).show()
+        Button(
+            modifier = Modifier.padding(top = 8.dp),
+            onClick = {
+                if (birthday.isNotEmpty()) {
+                    if (birthday == "12/2") {
+                        Toast.makeText(context, "Happy Birthday", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "Today is not Birthday", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(context, "Birthday is empty", Toast.LENGTH_SHORT).show()
+                }
             }
-        }) {
+        ) {
             Text(text = "OK")
         }
     }

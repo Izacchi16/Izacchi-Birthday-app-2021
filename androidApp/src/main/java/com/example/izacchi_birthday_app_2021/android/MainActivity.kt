@@ -5,12 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.example.izacchi_birthday_app_2021.android.ui.ContentScreen
 import com.example.izacchi_birthday_app_2021.android.ui.MainScreen
 
 class MainActivity : ComponentActivity() {
@@ -28,9 +25,6 @@ fun NavigationHost(navHostController: NavHostController) {
     NavHost(navController = navHostController, startDestination = "main") {
         composable("main") {
             MainScreen(navHostController)
-        }
-        composable("content") {
-            ContentScreen(navHostController)
         }
     }
 }
