@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.izacchi_birthday_app_2021.BirthdayChecker
 
 @Composable
 fun MainScreen(navHostController: NavHostController) {
@@ -39,7 +40,7 @@ fun MainScreen(navHostController: NavHostController) {
             modifier = Modifier.padding(top = 8.dp),
             onClick = {
                 if (birthday.isNotEmpty()) {
-                    if (birthday == "12/2") {
+                    if (BirthdayChecker().isIzacchiBirthday(birthday)) {
                         Toast.makeText(context, "Happy Birthday", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(context, "Today is not Birthday", Toast.LENGTH_SHORT).show()

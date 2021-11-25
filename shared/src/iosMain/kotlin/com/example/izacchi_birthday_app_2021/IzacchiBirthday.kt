@@ -1,7 +1,7 @@
 package com.example.izacchi_birthday_app_2021
 
-import platform.UIKit.UIDevice
-
-actual class Platform actual constructor() {
-    actual val platform: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+actual class IzacchiBirthday actual constructor() {
+    actual fun checkBirthday(date: String): Boolean {
+        return true
+    }
 }
